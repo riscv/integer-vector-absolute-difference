@@ -7,7 +7,7 @@ This document describes the Zvabd extension for instructions that compute the el
 These operations are widely utilized in image registration, object recognition, motion estimation and loop filters for video workloads.
 
 === Extension Overview
-The Zvabd extension follows the Vector Arithmetic Instruction Formats.
+The Zvabd extension follows the vector arithmetic instruction specification in "V" Standard Extension.
 
 Below is a list of all of the instructions that are included in the extension.
 [%autowidth]
@@ -27,7 +27,7 @@ Below is a list of all of the instructions that are included in the extension.
 NOTE: Since the targeted use cases are mostly based on 8-bit and 16-bit integer, `vabd/vabdu/vwabdacc/vwabdaccu` are designed for only SEW=8 and SEW=16. Additionally, `vabs` is considered to support all the element sizes as it is quite common used and simple to implement.
 
 === Pseudocode for instruction semantics
-The semantics of each instruction is expressed in a SAIL-like syntax.
+The semantics of each instruction is expressed in a SAIL-like syntax, following the link:https://github.com/riscv/sail-riscv/tree/master/model/extensions/V[RISC-V Vector Sail Model].
 
 === Instructions
 
@@ -60,6 +60,7 @@ An absolute value operation is performed on each element of vs2
 Operation::
 [source,sail]
 --
+let (result, mask) = init_masked_result(num_elem, SEW, LMUL_pow, vd_val, vm_val);
 foreach (i from 0 to (num_elem - 1)) {
     if mask[i] == bitone then {
         result[i] = abs(signed(vs2_val[i]));
@@ -104,6 +105,7 @@ This instruction is defined for SEW=8 and SEW=16, otherwise the instruction enco
 Operation::
 [source,sail]
 --
+let (result, mask) = init_masked_result(num_elem, SEW, LMUL_pow, vd_val, vm_val);
 foreach (i from 0 to (num_elem - 1)) {
     if mask[i] == bitone then {
         result[i] = max(vs2_val[i], vs1_val[i]) - min(vs2_val[i], vs1_val[i]);
@@ -148,6 +150,7 @@ This instruction is defined for SEW=8 and SEW=16, otherwise the instruction enco
 Operation::
 [source,sail]
 --
+let (result, mask) = init_masked_result(num_elem, SEW, LMUL_pow, vd_val, vm_val);
 foreach (i from 0 to (num_elem - 1)) {
     if mask[i] == bitone then {
         result[i] = maxu(vs2_val[i], vs1_val[i]) - minu(vs2_val[i], vs1_val[i]);
@@ -194,6 +197,7 @@ Operation::
 --
 let SEW_widen = SEW * 2;
 let LMUL_pow_widen = LMUL_pow + 1;
+let (result, mask) = init_masked_result(num_elem, SEW_widen, LMUL_pow_widen, vd_val, vm_val);
 foreach (i from 0 to (num_elem - 1)) {
     if mask[i] == bitone then {
         result[i] = to_bits_unsafe(SEW_widen, max(vs2_val[i], vs1_val[i]) - min(vs2_val[i], vs1_val[i]) ) + vd_val[i];
@@ -240,6 +244,7 @@ Operation::
 --
 let SEW_widen = SEW * 2;
 let LMUL_pow_widen = LMUL_pow + 1;
+let (result, mask) = init_masked_result(num_elem, SEW_widen, LMUL_pow_widen, vd_val, vm_val);
 foreach (i from 0 to (num_elem - 1)) {
     if mask[i] == bitone then {
         result[i] = to_bits_unsafe(SEW_widen, maxu(vs2_val[i], vs1_val[i]) - minu(vs2_val[i], vs1_val[i]) ) + vd_val[i];
