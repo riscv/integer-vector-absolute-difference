@@ -19,12 +19,12 @@ Below is a list of all of the instructions that are included in the extension.
 | vabs.v             | <<insns-vabs>>
 | vabd.vv            | <<insns-vabd>>
 | vabdu.vv           | <<insns-vabdu>>
-| vwabdacc.vv        | <<insns-vwabdacc>>
-| vwabdaccu.vv       | <<insns-vwabdaccu>>
+| vwabda.vv        | <<insns-vwabda>>
+| vwabdau.vv       | <<insns-vwabdau>>
 
 |===
 
-NOTE: Since the targeted use cases are mostly based on 8-bit and 16-bit integer, `vabd/vabdu/vwabdacc/vwabdaccu` are designed for only SEW=8 and SEW=16. Additionally, `vabs` is considered to support all the element sizes as it is quite common used and simple to implement.
+NOTE: Since the targeted use cases are mostly based on 8-bit and 16-bit integer, `vabd/vabdu/vwabda/vwabdau` are designed for only SEW=8 and SEW=16. Additionally, `vabs` is considered to support all the element sizes as it is quite common used and simple to implement.
 
 === Pseudocode for instruction semantics
 The semantics of each instruction is expressed in a SAIL-like syntax, following the link:https://github.com/riscv/sail-riscv/tree/master/model/extensions/V[RISC-V Vector Sail Model].
@@ -161,14 +161,14 @@ set_vstart(zeros());
 RETIRE_SUCCESS
 --
 
-[[insns-vwabdacc, Vector Signed Integer Absolute Difference And Accumulate]]
-==== vwabdacc.vv
+[[insns-vwabda, Vector Signed Integer Absolute Difference And Accumulate]]
+==== vwabda.vv
 
 Synopsis::
     Vector Widening Signed Integer Absolute Difference and Accumulate, Overwrite Addend
 
 Mnemonic::
-vwabdacc.vv _vd_, _vs2_, _vs1_, _vm_
+vwabda.vv _vd_, _vs2_, _vs1_, _vm_
 
 Encoding::
 [wavedrom, , svg]
@@ -208,14 +208,14 @@ set_vstart(zeros());
 RETIRE_SUCCESS
 --
 
-[[insns-vwabdaccu, Vector Unsigned Integer Absolute Difference And Accumulate]]
-==== vwabdaccu.vv
+[[insns-vwabdau, Vector Unsigned Integer Absolute Difference And Accumulate]]
+==== vwabdau.vv
 
 Synopsis::
 Vector Widening Unsigned Integer Absolute Difference and Accumulate, Overwrite Addend.
 
 Mnemonic::
-vwabdaccu.vv _vd_, _vs2_, _vs1_, _vm_
+vwabdau.vv _vd_, _vs2_, _vs1_, _vm_
 
 Encoding::
 [wavedrom, , svg]
