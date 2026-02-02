@@ -95,7 +95,7 @@ Encoding::
 ....
 
 Reserved Encodings::
-* `SEW` is not 8 nor 16.
+* `SEW` is neither 8 nor 16.
 
 Description::
 This instruction computes the absolute difference between the elements of two signed integer SEW-bit source operands vs1 and vs2.
@@ -140,7 +140,7 @@ Encoding::
 ....
 
 Reserved Encodings::
-* `SEW` is not 8 nor 16.
+* `SEW` is neither 8 nor 16.
 
 Description::
 This instruction computes the absolute difference between the elements of two unsigned integer SEW-bit source operands vs1 and vs2.
@@ -185,7 +185,7 @@ Encoding::
 ....
 
 Reserved Encodings::
-* `SEW` is not 8 nor 16.
+* `SEW` is neither 8 nor 16.
 
 Description::
 This instruction computes the absolute difference between the elements of two signed integer SEW-bit source operands vs1 and vs2, and accumulates the results into the elements of a 2*SEW-bit integer operand vd.
@@ -232,7 +232,7 @@ Encoding::
 ....
 
 Reserved Encodings::
-* `SEW` is not 8 nor 16.
+* `SEW` is neither 8 nor 16.
 
 Description::
 This instruction computes the absolute difference between the elements of two unsigned integer SEW-bit source operands vs1 and vs2, and accumulates the results into the elements of a 2*SEW-bit integer operand vd.
