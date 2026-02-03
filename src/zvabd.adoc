@@ -26,6 +26,10 @@ Below is a list of all of the instructions that are included in the extension.
 
 NOTE: Since the targeted use cases are mostly based on 8-bit and 16-bit integer, `vabd/vabdu/vwabda/vwabdau` are designed for only SEW=8 and SEW=16. Additionally, `vabs` is considered to support all the element sizes as it is quite common used and simple to implement.
 
+The Zvabd extension depend on Zve32x.
+
+If Zve32x is supported then vabs provide support for SEW of 8, 16, and 32. If Zve64x is supported then vabs also add support for SEW 64.
+
 === Pseudocode for instruction semantics
 The semantics of each instruction is expressed in a SAIL-like syntax, following the link:https://github.com/riscv/sail-riscv/tree/master/model/extensions/V[RISC-V Vector Sail Model].
 
