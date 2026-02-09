@@ -33,6 +33,8 @@ If Zve32x is supported then vabs provide support for SEW of 8, 16, and 32. If Zv
 === Pseudocode for instruction semantics
 The semantics of each instruction is expressed in a SAIL-like syntax, following the link:https://github.com/riscv/sail-riscv/tree/master/model/extensions/V[RISC-V Vector Sail Model].
 
+<<<
+
 === Instructions
 
 [[insns-vabs, Vector Signed Integer Absolute]]
@@ -74,6 +76,8 @@ write_vreg(num_elem, SEW, LMUL_pow, vd, result);
 set_vstart(zeros());
 RETIRE_SUCCESS
 --
+
+<<<
 
 [[insns-vabd, Vector Signed Integer Absolute Difference]]
 ==== vabd.vv
@@ -120,6 +124,8 @@ set_vstart(zeros());
 RETIRE_SUCCESS
 --
 
+<<<
+
 [[insns-vabdu, Vector Unsigned Integer Absolute Difference]]
 ==== vabdu.vv
 
@@ -164,6 +170,8 @@ write_vreg(num_elem, SEW, LMUL_pow, vd, result);
 set_vstart(zeros());
 RETIRE_SUCCESS
 --
+
+<<<
 
 [[insns-vwabda, Vector Signed Integer Absolute Difference And Accumulate]]
 ==== vwabda.vv
@@ -211,6 +219,8 @@ write_vreg(num_elem, SEW_widen, LMUL_pow_widen, vd, result);
 set_vstart(zeros());
 RETIRE_SUCCESS
 --
+
+<<<
 
 [[insns-vwabdau, Vector Unsigned Integer Absolute Difference And Accumulate]]
 ==== vwabdau.vv
