@@ -1,0 +1,16 @@
+normative_rule_defs/zvabd.yaml
+  h_d845af32b8f05a 6
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "5da7c1de82aa06d5b8ac2d429572d41df98c03a4",
+  "prompts": {},
+  "humans": {
+    "h_d845af32b8f05a": {
+      "author": "qianjiayan <qianjiayan.1@bytedance.com>"
+    }
+  },
+  "attestation_metadata": {},
+  "remote_transcripts": {}
+}
