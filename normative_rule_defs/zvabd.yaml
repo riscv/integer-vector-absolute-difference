@@ -3,7 +3,7 @@
 
 $schema: "../docs-resources/schemas/defs-schema.json#"
 
-chapter_name: Extension for Integer Vector Absolute Difference Instructions
+chapter_name: Vector Extension for Integer Absolute Difference Instructions
 
 normative_rule_definitions:
 
