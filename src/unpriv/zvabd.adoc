@@ -1,5 +1,5 @@
-[[zvabd]]
-=== "Zvabd" extension for Integer Vector Absolute Difference Instructions
+[[ext:zvabd]]
+=== ext:zvabd[] Vector Extension for Integer Vector Absolute Difference Instructions
 
 ==== Introduction
 This document describes the Zvabd extension for instructions that compute the element-wise absolute difference of vectors. That is, given two vectors v and u, compute the vector y such that stem:[y_i = abs(v_i - u_i)] and stem:[y_i += abs(v_i - u_i)].
@@ -26,9 +26,9 @@ Below is a list of all of the instructions that are included in the extension.
 
 NOTE: Since the targeted use cases are mostly based on 8-bit and 16-bit integer, `vabd/vabdu/vwabda/vwabdau` are designed for only SEW=8 and SEW=16. Additionally, `vabs` is considered to support all the element sizes as it is quite common used and simple to implement.
 
-The Zvabd extension depend on Zve32x.
+[#norm:Zvabd_dependent_Zve32x]#The Zvabd extension depend on ext:zve32x[].#
 
-If Zve32x is supported then vabs provide support for SEW of 8, 16, and 32. If Zve64x is supported then vabs also add support for SEW 64.
+[#norm:Zvabd_eew]#If ext:zve32x[] is supported then vabs provide support for SEW of 8, 16, and 32.# [#norm:Zvabd_eew_Zve64x]#If ext:zve64x[] is supported then vabs also add support for SEW 64.#
 
 ==== Pseudocode for instruction semantics
 The semantics of each instruction is expressed in a SAIL-like syntax, following the link:https://github.com/riscv/sail-riscv/tree/master/model/extensions/V[RISC-V Vector Sail Model].
@@ -36,7 +36,7 @@ The semantics of each instruction is expressed in a SAIL-like syntax, following 
 ==== Instructions
 
 [[insns-vabs, Vector Signed Integer Absolute]]
-===== vabs.v
+===== insn:vabs.v[]
 
 Synopsis::
 Vector Single-Width Signed Integer Absolute
@@ -59,7 +59,7 @@ Encoding::
 ....
 
 Description::
-An absolute value operation is performed on each element of vs2
+[#norm:vabs_op]#An absolute value operation is performed on each element of vs2#
 
 Operation::
 [source,sail]
@@ -76,7 +76,7 @@ RETIRE_SUCCESS
 --
 
 [[insns-vabd, Vector Signed Integer Absolute Difference]]
-===== vabd.vv
+===== insn:vabd.vv[]
 
 Synopsis::
 Vector Single-Width Signed Integer Absolute Difference
@@ -99,12 +99,12 @@ Encoding::
 ....
 
 Reserved Encodings::
-* `SEW` is neither 8 nor 16.
+* [#norm:vabd_sew_rsv]#`SEW` is neither 8 nor 16.#
 
 Description::
-This instruction computes the absolute difference between the elements of two signed integer SEW-bit source operands vs1 and vs2.
+[#norm:vabd_op]#This instruction computes the absolute difference between the elements of two signed integer SEW-bit source operands vs1 and vs2.#
 
-This instruction is defined for SEW=8 and SEW=16, otherwise the instruction encoding is reserved.
+[#norm:vabd_sew_defined]#This instruction is defined for SEW=8 and SEW=16, otherwise the instruction encoding is reserved.#
 
 Operation::
 [source,sail]
@@ -121,7 +121,7 @@ RETIRE_SUCCESS
 --
 
 [[insns-vabdu, Vector Unsigned Integer Absolute Difference]]
-===== vabdu.vv
+===== insn:vabdu.vv[]
 
 Synopsis::
 Vector Single-Width Unsigned Integer Absolute Difference
@@ -144,12 +144,12 @@ Encoding::
 ....
 
 Reserved Encodings::
-* `SEW` is neither 8 nor 16.
+* [#norm:vabdu_sew_rsv]#`SEW` is neither 8 nor 16.#
 
 Description::
-This instruction computes the absolute difference between the elements of two unsigned integer SEW-bit source operands vs1 and vs2.
+[#norm:vabdu_op]#This instruction computes the absolute difference between the elements of two unsigned integer SEW-bit source operands vs1 and vs2.#
 
-This instruction is defined for SEW=8 and SEW=16, otherwise the instruction encoding is reserved.
+[#norm:vabdu_sew_defined]#This instruction is defined for SEW=8 and SEW=16, otherwise the instruction encoding is reserved.#
 
 Operation::
 [source,sail]
@@ -166,7 +166,7 @@ RETIRE_SUCCESS
 --
 
 [[insns-vwabda, Vector Signed Integer Absolute Difference And Accumulate]]
-===== vwabda.vv
+===== insn:vwabda.vv[]
 
 Synopsis::
     Vector Widening Signed Integer Absolute Difference and Accumulate, Overwrite Addend
@@ -189,12 +189,12 @@ Encoding::
 ....
 
 Reserved Encodings::
-* `SEW` is neither 8 nor 16.
+* [#norm:vwabda_sew_rsv]#`SEW` is neither 8 nor 16.#
 
 Description::
-This instruction computes the absolute difference between the elements of two signed integer SEW-bit source operands vs1 and vs2, and accumulates the results into the elements of a 2*SEW-bit integer operand vd.
+[#norm:vwabda_op]#This instruction computes the absolute difference between the elements of two signed integer SEW-bit source operands vs1 and vs2, and accumulates the results into the elements of a 2*SEW-bit integer operand vd.#
 
-This instruction is defined for SEW=8 and SEW=16, otherwise the instruction encoding is reserved.
+[#norm:vwabda_sew_defined]#This instruction is defined for SEW=8 and SEW=16, otherwise the instruction encoding is reserved.#
 
 Operation::
 [source,sail]
@@ -213,7 +213,7 @@ RETIRE_SUCCESS
 --
 
 [[insns-vwabdau, Vector Unsigned Integer Absolute Difference And Accumulate]]
-===== vwabdau.vv
+===== insn:vwabdau.vv[]
 
 Synopsis::
 Vector Widening Unsigned Integer Absolute Difference and Accumulate, Overwrite Addend.
@@ -236,12 +236,12 @@ Encoding::
 ....
 
 Reserved Encodings::
-* `SEW` is neither 8 nor 16.
+* [#norm:vwabdau_sew_rsv]#`SEW` is neither 8 nor 16.#
 
 Description::
-This instruction computes the absolute difference between the elements of two unsigned integer SEW-bit source operands vs1 and vs2, and accumulates the results into the elements of a 2*SEW-bit integer operand vd.
+[#norm:vwabdau_op]#This instruction computes the absolute difference between the elements of two unsigned integer SEW-bit source operands vs1 and vs2, and accumulates the results into the elements of a 2*SEW-bit integer operand vd.#
 
-This instruction is defined for SEW=8 and SEW=16, otherwise the instruction encoding is reserved.
+[#norm:vwabdau_sew_defined]#This instruction is defined for SEW=8 and SEW=16, otherwise the instruction encoding is reserved.#
 
 Operation::
 [source,sail]
