@@ -34,6 +34,7 @@
 * xref:v-st-ext.adoc[Chapter 30. "V" Standard Extension for Vector Operations, Version 1.0]
 * xref:scalar-crypto.adoc[Chapter 31. Cryptography Extensions: Scalar & Entropy Source Instructions, Version 1.0.1]
 * xref:vector-crypto.adoc[Chapter 32.Cryptography Extensions: Vector Instructions, Version 1.0]
+* xref:zvabd.adoc["Zvabd" Extension for Integer Vector Absolute Difference Instructions]
 * xref:unpriv-cfi.adoc[Chapter 33. Control-flow Integrity (CFI)]
 * xref:rv-32-64g.adoc[Chapter 34. RV32/64G Instruction Set Listings]
 * xref:naming.adoc[Chapter 36. ISA Extension Naming Conventions]
